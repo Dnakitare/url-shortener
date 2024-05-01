@@ -11,7 +11,4 @@ router.get('/:shortCode', urlController.redirectUrl);
 // Route for retrieving information about a shortened URL
 router.get('/info/:shortCode', urlController.getUrlInfo);
 
-// Route fo shortening a URL
-router.post('/shorten', urlController.shortenUrl);
-
 module.exports = router;
