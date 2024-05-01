@@ -1,6 +1,5 @@
 const Url = require('../models/Url');
 const shortid = require('shortid');
-const Joi = require('joi');
 
 // Controller method for shortening a URL
 exports.shortenUrl = async (req, res) => {
@@ -16,12 +15,13 @@ exports.shortenUrl = async (req, res) => {
     const shortCode = shortid.generate();
 
     // Construct the short URL
-    const shortUrl = `${req.protocol}://${req.get('host')}/${shortCode}`;
+    const shortUrl = `${req.protocol}://${req.get('host')}/api/${shortCode}`;
 
     //Save the shortened URL to the database
     const url = new Url({
       originalUrl,
       shortUrl,
+      shortCode,
     });
     await url.save();
 
@@ -35,15 +35,15 @@ exports.shortenUrl = async (req, res) => {
 // Controller method for redirecting a shortened URL to its original URL
 exports.redirectUrl = async (req, res) => {
   try {
-    const { shortUrl } = req.params;
+    const { shortCode } = req.params;
 
     // Validate shortUrl format
-    if (!/^[a-zA-Z0-9_-]{7}$/.test(shortUrl)) {
+    if (!/^[a-zA-Z0-9_-]+$/.test(shortCode)) {
       return res.status(400).json({ error: 'Invalid short URL format' });
     }
 
     // Find the corresponding original URL in the database
-    const url = await Url.findOne({ shortUrl });
+    const url = await Url.findOne({ shortCode: shortCode });
 
     // If the short URL is not found, return 404
     if (!url) {
