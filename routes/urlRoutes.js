@@ -6,9 +6,12 @@ const urlController = require('../controllers/urlController');
 router.post('/shorten', urlController.shortenUrl);
 
 // Route for redirecting from the short URL to the original URL
-router.get('/:shortUrl', urlController.redirectUrl);
+router.get('/:shortCode', urlController.redirectUrl);
 
 // Route for retrieving information about a shortened URL
-router.get('/info/:shortUrl', urlController.getUrlInfo);
+router.get('/info/:shortCode', urlController.getUrlInfo);
+
+// Route fo shortening a URL
+router.post('/shorten', urlController.shortenUrl);
 
 module.exports = router;
