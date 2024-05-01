@@ -22,10 +22,7 @@ const logger = winston.createLogger({
   ),
 });
 
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(MONGODB_URI);
 
 mongoose.connection.on('connected', () => {
   console.log('Connected to MongoDB');
