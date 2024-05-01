@@ -43,6 +43,12 @@ const limiter = rateLimit({
 // Apply rate limiter to all requests
 app.use(limiter);
 
+// Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
+});
+
 app.use(express.json());
 app.use('/api', urlRoutes);
 
