@@ -46,7 +46,7 @@ Contributions are what make the open source community such an amazing place to l
 5. Open a Pull Request
 
 ### License
-Distributed under the ISC License. See LICENSE [ISC License](https://en.wikipedia.org/wiki/ISC_license "ISC License") for more information.
+Distributed under the ISC License. See [LICENSE](https://en.wikipedia.org/wiki/ISC_license) for more information.
 
 ### Contact
 Project Link: https://github.com/Dnakitare/url-shortener
