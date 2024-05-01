@@ -17,14 +17,20 @@ A simple and efficient URL shortener built with Node.js and Express.
 ### Installation
 
 1. Clone the repo
-  ```sh git clone https://github.com/your_username_/url-shortener.git sh```
+  ```sh 
+  git clone https://github.com/your_username_/url-shortener.git
+  ```
   
 2. Install NPM packages
-  ```sh npm install sh```
+  ```sh 
+  npm install
+  ```
 
 ### Usage   
 Start the server:
-```sh npm start sh```
+```sh
+npm start
+```
 Then, navigate to http://localhost:3000 in your browser.
 
 ### Running the tests
